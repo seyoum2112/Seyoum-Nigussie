@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seyoum Nigussie - Portfolio & Submission</title>
+  <style>
+    /* ====== GENERAL ====== */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #abb1c3;
+      color: #281313;
+    }
+
+    /* ====== HEADER ====== */
+    header {
+      background: #0a3345;
+      color: rgb(179, 177, 192);
+      padding: 20px 10px;
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      justify-content: flex-start;
+    }
+    header img.logo {
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #12f91d;
+      box-shadow: 0 4px 10px rgba(78, 74, 74, 0.3);
+    }
+
+    .header-text h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    .header-text p {
+      margin: 5px 0 0;
+      font-size: 16px;
+    }
+
+    nav {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: rgb(238, 246, 9);
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
+
+    section {
+      display: none;
+      margin-bottom: 40px;
+      animation: fadeIn 0.5s ease;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    section h2 {
+      color: #3100ad;
+      border-bottom: 4px solid #004aad;
+      padding-bottom: 5px;
+    }
+
+    /* ====== ABOUT SECTION ====== */
+    .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 30px;
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .about-container img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      border: 4px solid #d6374e;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .course, .research-item {
+      background: #a39a9a;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* ====== SUBMISSION PORTAL UI ====== */
+    .submission-box {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #0a3345;
+      margin-top: 15px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .submission-box select, .submission-box input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+    
+    /* Progress Bar Style */
+    progress {
+      width: 100%;
+      height: 20px;
+      margin-bottom: 10px;
+      display: none; /* Hidden by default */
+    }
+
+    .upload-btn {
+      background: #510762;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      width: 100%;
+      transition: background 0.3s;
+    }
+    .upload-btn:hover { background: #009e8e; }
+    #uploadStatus { font-weight: bold; margin-top: 10px; font-size: 14px; }
+
+    footer {
+      background: #004aad;
+      color: rgb(168, 155, 155);
+      text-align: center;
+      padding: 15px 10px;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <img src="images/SEYOUM (2).jpg" alt="Seyoum Nigussie" class="logo">
+      <div class="header-text">
+        <h1>Seyoum Getachew Nigussie</h1>
+        <p><strong>Department of Electromechanical Engineering</strong></p>
+      </div>
+    </div>
+    <nav>
+      <a onclick="showSection('about')">About</a>
+      <a onclick="showSection('courses')">Courses</a>
+      <a onclick="showSection('research')">Research Interest</a>
+      <a onclick="showSection('projects')">Projects</a>
+      <a onclick="showSection('publication')">Publications</a>
+      <a onclick="showSection('certificates')">Certificates</a>
+      <a onclick="showSection('contact')">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about" class="active">
+      <h2>Biography</h2>
+      <div class="about-container">
+        <img src="images/aastu-logo.png" alt="AASTU Logo">
+        <div class="about-text">
+          <p><strong>Seyoum Nigussie</strong>, Lecturer in the Department of Electromechanical Engineering at Addis Ababa Science and Technology University.</p>
+          <p>Over 5 years of teaching and research experience.</p>
+          <p><strong>Education:</strong></p>
+          <ul>
+            <li>M.Sc. in Thermal Engineering, ASTU (2018-2020).</li>
+            <li>B.Sc. in Mechanical Engineering, ASTU (2013-2018).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="courses">
+      <h2>Courses Currently Teaching</h2>
+        <div class="submission-box">
+          <h4 style="margin-top:0;">📤 <strong>Assignment Submission Portal</strong></h4>
+          
+          <label>1. Select Your Section:</label>
+          <select id="portfolioSectionSelect">
+            <option value="">-- Choose Section --</option>
+            <option value="Section_A">Section A (Mechanical)</option>
+            <option value="Section_C">Section C (Electrical)</option>
+            <option value="Section_D">Section D (Electrical)</option>
+            <option value="Section_E">Section E (Electrical)</option>
+            <option value="Section_8">Section 8 (Freshman)</option>
+          </select>
+
+          <label>2. Select Your Name:</label>
+          <select id="portfolioStudentSelect">
+            <option value="">-- Select Section First --</option>
+          </select>
+
+          <label>3. Select Assignment File:</label>
+          <input type="file" id="portfolioFileInput">
+
+          <progress id="uploadProgress" value="0" max="100"></progress>
+          <button id="portfolioSubmitBtn" class="upload-btn">Submit</button>
+          <div id="uploadStatus"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <h2>Research Interest</h2>
+      <div class="research-item">
+        <h3>1. Thermofluid Systems Optimization</h3>
+        <p>Modeling and experimental study of efficient energy conversion in thermofluid systems, including solar collectors and heat exchangers.</p>
+      </div>
+      <div class="research-item">
+        <h3>2. Renewable and Sustainable Energy</h3>
+        <p>Design and analysis of hybrid renewable systems (solar–wind) for off-grid applications in Ethiopia and Sub-Saharan Africa.</p>
+      </div>
+      <div class="research-item">
+        <h3>3. Refrigeration and Airconditioning</h3>
+        <p>Numerical and experimental studies on the effect of phase change material.</p>
+      </div>
+      <div class="research-item">
+        <h3>4. Water desalination system</h3>
+        <p>Numerical and experimental studies on the performance of desalination technologies.</p>
+      </div>
+      <div class="research-item">
+        <h3>5. Atmospheric water harvesting system</h3>
+        <p>Numerical and experimental investigation of the performance of technologies based on the atmospheric condition.</p>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Research and Technology Transfer projects</h2>
+      <ul>
+        <li>Design and manufacturing of solar thermal cooker.</li>
+        <li>Design and manufacturing of water desalination system.</li>
+        <li>Design and fabrication of vertical farming model for urban agriculture.</li>
+      </ul>
+    </section>
+
+    <section id="publication">
+      <h2>Publications</h2>
+      <ul>
+        <li>
+          Nigussie, S., et al. <em>"Experimental investigation of phase change material integrated vapor compression refrigeration system"</em>, International Journal of Applied Thermal Engineering, 2025. 
+          <a href="https://doi.org/10.1016/j.applthermaleng.2025.126118" target="_blank">[Link]</a>
+        </li>
+        <li>
+          Nigussie, S., et al. <em>"Performance Investigation of Ethiopian Local Drinking Alcohol Distillation System Using Solar Dish Concentrator"</em>, Journal of Energy, 2022. 
+          <a href="https://doi.org/10.1155/2022/8478276" target="_blank">[Link]</a>
+        </li>
+        <li>
+          Nigussie, S., et al. <em>"Design and thermal performance investigation of solar-powered water purifying system for Dire Dawa Rural area"</em>, Journal Solar Energy Advances, 2025. 
+          <a href="https://doi.org/10.1016/j.seja.2025.100088" target="_blank">[Link]</a>
+        </li>
+      </ul>
+      <p>📚 Google Scholar: <a href="https://scholar.google.com/citations?authuser=1&user=HXb3taMAAAAJ" target="_blank">View Profile</a></p>
+      <p>🆔 ORCID ID: <a href="https://orcid.org/0009-0002-4659-2403" target="_blank">0009-0002-4659-2403</a></p>
+    </section>
+
+    <section id="certificates">
+      <h2>Certificates</h2>
+      <ul>
+        <li>International conference on energy and application (Djibouti University).</li>
+        <li>Certified in externship training program.</li>
+        <li>Certified in higher diploma program (HDP).</li>
+        <li>Certified in community services projects.</li>
+        <li>Certified in research and technology transfer project work.</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>If you want to get in touch, please fill out the form below:</p>
+      <div style="position: relative; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 10px;">
+        <canvas id="contact-bg" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:-1;"></canvas>
+        <div class="contact-container">
+          <form class="contact-form" action="https://formspree.io/f/xdkwwqly" method="POST" id="contactForm">
+            <div class="floating-group">
+              <label for="contact-name">Full Name</label><br>
+              <input type="text" id="contact-name" name="name" required>
+            </div>
+            <div class="floating-group">
+              <label for="contact-email">Email</label><br>
+              <input type="email" id="contact-email" name="_replyto" required>
+            </div>
+            <div class="floating-group">
+              <label for="contact-message">Message</label><br>
+              <textarea id="contact-message" name="message" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="upload-btn" style="margin-top:10px;">📨 Send Message</button>
+          </form>
+          <hr>
+          <div class="contact-info">
+            <p>📧 <strong>Email:</strong> <a href="mailto:seyoum.getachew@aastu.edu.et">seyoum.getachew@aastu.edu.et</a></p>
+            <p>🏢 <strong>Office:</strong> Room 401</p>
+            <p>📞 <strong>Phone:</strong> +251933235303</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Seyoum Nigussie | AASTU | Portfolio</p>
+  </footer>
+
+  <script type="module">
+    import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
+    import { getDatabase, ref, get, child } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-database.js";
+
+    const SUPABASE_URL = "https://lkknherydhnisasdypnm.supabase.co";
+    const SUPABASE_ANON_KEY = "sb_publishable_tGsR8Ee--_TXkoGoRM8roA_8sS_Shtl"; 
+    const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAQt0xCxcXJHHg5O-J6dzAdwQ6RxofscFo",
+      authDomain: "exam-67a68.firebaseapp.com",
+      projectId: "exam-67a68",
+      storageBucket: "exam-67a68.firebasestorage.app",
+      messagingSenderId: "8047123325",
+      appId: "1:8047123325:web:438c018b4809dfb92e8a14"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    const sectionDrop = document.getElementById("portfolioSectionSelect");
+    const studentDrop = document.getElementById("portfolioStudentSelect");
+    const fileInput = document.getElementById("portfolioFileInput");
+    const statusMsg = document.getElementById("uploadStatus");
+    const progressBar = document.getElementById("uploadProgress");
+
+    sectionDrop.onchange = async (e) => {
+      const section = e.target.value;
+      studentDrop.innerHTML = '<option value="">Loading...</option>';
+      if (!section) return studentDrop.innerHTML = '<option value="">-- Select Section First --</option>';
+      try {
+        const snap = await get(child(ref(db), "studentList/" + section));
+        studentDrop.innerHTML = '<option value="">-- Select Your Name --</option>';
+        if (snap.exists()) {
+          const students = Object.values(snap.val());
+          students.sort((a, b) => a.firstName.localeCompare(b.firstName));
+          students.forEach(s => {
+            const opt = document.createElement("option");
+            opt.value = `${s.firstName}_${s.lastName}_${s.id}`;
+            opt.textContent = `${s.firstName} ${s.lastName} (${s.id})`;
+            studentDrop.appendChild(opt);
+          });
+        }
+      } catch (err) { studentDrop.innerHTML = '<option value="">Error loading students!</option>'; }
+    };
+
+    document.getElementById("portfolioSubmitBtn").onclick = async () => {
+      const sec = sectionDrop.value;
+      const student = studentDrop.value;
+      const file = fileInput.files[0];
+      if (!sec || !student || !file) return alert("Please select section, name, and a file!");
+      progressBar.style.display = "block";
+      progressBar.value = 0;
+      statusMsg.style.color = "blue";
+      statusMsg.innerText = "🚀 Uploading...";
+      try {
+        const filePath = `${sec}/${student}_${file.name}`;
+        const { error } = await supabase.storage.from("Assignment").upload(filePath, file);
+        if (error) throw error;
+        progressBar.value = 100;
+        statusMsg.style.color = "green";
+        statusMsg.innerText = "✅ File uploaded!";
+        fileInput.value = "";
+        setTimeout(() => { progressBar.style.display = "none"; }, 3000);
+      } catch (err) {
+        statusMsg.style.color = "red";
+        statusMsg.innerText = "❌ Upload failed: " + err.message;
+      }
+    };
+  </script>
+
+  <script>
+    function showSection(sectionId) {
+      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+      const target = document.getElementById(sectionId);
+      if(target) target.classList.add("active");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    // Particle Background
+    const canvas = document.getElementById('contact-bg');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    function resizeCanvas() { if(canvas.parentElement) { canvas.width = canvas.parentElement.offsetWidth; canvas.height = canvas.parentElement.offsetHeight; } }
+    class Particle { constructor() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.radius = Math.random() * 2 + 1; this.speedY = Math.random() * 0.5 + 0.1; } update() { this.y -= this.speedY; if (this.y < 0) this.y = canvas.height; } draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2); ctx.fillStyle = 'rgba(0,150,255,0.3)'; ctx.fill(); } }
+    function init() { particles = []; for (let i = 0; i < 50; i++) particles.push(new Particle()); }
+    function animate() { ctx.clearRect(0, 0, canvas.width, canvas.height); particles.forEach(p => { p.update(); p.draw(); }); requestAnimationFrame(animate); }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas(); init(); animate();
+  </script>
+</body>
+</html>
